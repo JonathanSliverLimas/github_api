@@ -1,0 +1,68 @@
+<div id="content-api-github">
+  <div class="content">
+    <div class="img-app">
+      <img src="../assets//img/github.png" />
+    </div>
+    <div class="buscar">
+      <input
+        type="text"
+        id="search"
+        placeholder="Buscar perfil de GitHub"
+        [(ngModel)]="searchString"
+      />
+      <img src="../assets//img/buscar.png" (click)="buscar()" />
+    </div>
+    <div class="detail-profile" *ngIf="user && user.name">
+      <div class="avatar">
+        <img src="{{ user.avatar }}" *ngIf="user.avatar" />
+        <img src="../assets/img/usuario.png" *ngIf="!user.avatar" />
+      </div>
+      <div class="name-user">
+        <h1>{{ user.name }}</h1>
+      </div>
+      <div class="bio-user">
+        <p>
+          {{ user.bio }}
+        </p>
+      </div>
+
+      <div class="redes-sociales">
+        <div class="redes-img" *ngIf="user.url_github">
+          <a target="_blank" href="{{user.url_github}}"><img src="../../../assets/img/github.png" /></a>
+        </div>
+        <div class="redes-img" *ngIf="user.twitter_username">
+          <a target="_blank" href="https://twitter.com/{{user.twitter_username}}"><img src="../../../assets/img/twitter.png" /></a>
+        </div>
+        <div class="redes-img" *ngIf="user.website">
+          <a target="_blank" href="{{user.website}}"><img src="../../../assets/img/web.png" /></a>
+        </div>
+      </div>
+
+      <div class="followers-user">
+        <div class="following">
+          <div class="following-title">Followers</div>
+          <div class="following-number">
+            {{ user.followers | number }}
+          </div>
+        </div>
+
+        <div class="following">
+          <div class="following-title">Following</div>
+          <div class="following-number">
+            {{ user.following | number }}
+          </div>
+        </div>
+
+        <div class="following">
+          <div class="following-title">Repos</div>
+          <div class="following-number">
+            {{ user.public_repos |number }}
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div class="footer">
+      <p>Desarrollado por <a target="_blank" href="http://www.jonathanlimas.com/mobile">Jonathan Limas</a></p>
+    </div>
+  </div>
+</div>
